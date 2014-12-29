@@ -17,6 +17,7 @@ printP	KEYWORD2
 writeP	KEYWORD2
 radioButton	KEYWORD2
 checkBox	KEYWORD2
+getMime	KEYWORD2
 read	KEYWORD2
 push	KEYWORD2
 expect	KEYWORD2
@@ -28,6 +29,7 @@ checkCredentials	KEYWORD2
 httpFail	KEYWORD2
 httpUnauthorized	KEYWORD2
 httpServerError	KEYWORD2
+httpNotFound	KEYWORD2
 httpSuccess	KEYWORD2
 httpSeeOther	KEYWORD2
 write	KEYWORD2
