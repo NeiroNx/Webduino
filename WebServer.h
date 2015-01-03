@@ -533,13 +533,13 @@ bool WebServer::dispatchCommand(ConnectionType requestType, char *verb,
     qm_offset = (qm_loc == NULL) ? 0 : 1;
     for (i = 0; i < m_cmdCount; ++i)
     {
-      if ((verb_len == strlen(m_commands[i].verb))
-          && (strncmp(verb, m_commands[i].verb, verb_len) == 0))
+      if ((verb_len >= strlen(m_commands[i].verb))
+          && (strncmp(verb, m_commands[i].verb, strlen(m_commands[i].verb)) == 0))
       {
         // Skip over the "verb" part of the URL (and the question
         // mark, if present) when passing it to the "action" routine
         m_commands[i].cmd(*this, requestType,
-        verb + verb_len + qm_offset,
+        verb + strlen(m_commands[i].verb),
         tail_complete);
         return true;
       }
