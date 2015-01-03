@@ -653,9 +653,7 @@ void WebServer::processConnection(char *buff, int *bufflen)
 
 bool WebServer::checkCredentials(const char authCredentials[45])
 {
-  char basic[7] = "Basic ";
-  if((0 == strncmp(m_authCredentials,basic,6)) &&
-     (0 == strcmp(authCredentials, m_authCredentials + 6))) return true;
+  if(0 == strcmp(authCredentials, m_authCredentials)) return true;
   return false;
 }
 
@@ -1297,7 +1295,7 @@ void WebServer::processHeaders()
       continue;
     }
 
-    if (expect("Authorization:"))
+    if (expect("Authorization: Basic"))
     {
       readHeader(m_authCredentials,51);
 #if WEBDUINO_SERIAL_DEBUGGING > 1
